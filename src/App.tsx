@@ -19,6 +19,7 @@ function App() {
   async function loadReminders() {
     const rems = await reminderService.getReminders();
     console.log('rems ===', rems);
+    setReminders(rems);
   }
 
   return (
