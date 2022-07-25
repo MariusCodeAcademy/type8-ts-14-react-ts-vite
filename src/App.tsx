@@ -16,15 +16,26 @@ function App() {
     loadReminders();
   }, []);
 
-  async function loadReminders() {
+  async function loadReminders(): Promise<void> {
     const rems = await reminderService.getReminders();
     console.log('rems ===', rems);
     setReminders(rems);
   }
 
+  async function handleDelete(deleteId: Reminder['id']): Promise<void> {
+    console.log('deleteId ===', deleteId);
+    // BE delete
+    const resultDelete = await reminderService.deleteReminder(deleteId);
+    console.log('resultDelete ===', resultDelete);
+    if (resultDelete.isDeleted) {
+      // FE delete
+      setReminders((prevReminders) => prevReminders.filter((r) => r.id !== deleteId));
+    }
+  }
+
   return (
     <div className='container'>
-      <ReminderList items={reminders} />
+      <ReminderList items={reminders} onDeleteReminder={handleDelete} />
     </div>
   );
 }
