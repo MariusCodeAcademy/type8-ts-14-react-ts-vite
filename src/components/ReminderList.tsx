@@ -19,5 +19,10 @@ function ReminderList({ items }: ReminderListProps) {
     </div>
   );
 }
+// sukurti ReminderStatus
+// <ReminderStatus status={true}  />
+// gaus pros status: boolean
+// jei status true tai generuojam kaip melyno fono el
+// jei status false tai generuojam kaip pilko fono el
 
 export default ReminderList;
