@@ -1,5 +1,6 @@
 import React from 'react';
 import Reminder from '../types/reminder';
+import ReminderStatus from './ReminderStatus';
 
 interface ReminderListProps {
   items: Reminder[];
@@ -12,17 +13,16 @@ function ReminderList({ items }: ReminderListProps) {
       <ul>
         {items.map((item: Reminder) => (
           <li key={item.id}>
-            {item.todo} -- {item.completed ? 'Complete' : 'Active'}
+            {item.todo} --
+            <ReminderStatus status={item.completed} />
           </li>
         ))}
       </ul>
     </div>
   );
 }
-// sukurti ReminderStatus
-// <ReminderStatus status={true}  />
-// gaus pros status: boolean
-// jei status true tai generuojam kaip melyno fono el
-// jei status false tai generuojam kaip pilko fono el
+
+// prideti istrynimo mygtuka li viduje
+// iskviesti paspaudimo metu funkcija aprasyta app.tsx
 
 export default ReminderList;
