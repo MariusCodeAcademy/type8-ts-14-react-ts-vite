@@ -7,12 +7,12 @@ interface ReminderListProps {
 
 function ReminderList({ items }: ReminderListProps) {
   return (
-    <div>
+    <div className='card mt-20'>
       <h2>ReminderList</h2>
       <ul>
         {items.map((item: Reminder) => (
           <li key={item.id}>
-            {item.title} -- {item.isDone ? 'Complete' : 'Active'}
+            {item.todo} -- {item.completed ? 'Complete' : 'Active'}
           </li>
         ))}
       </ul>

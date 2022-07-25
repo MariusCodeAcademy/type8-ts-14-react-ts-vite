@@ -1,5 +1,6 @@
 export default interface Reminder {
   id: number;
-  title: string;
-  isDone: boolean;
+  todo: string;
+  completed: boolean;
+  userId: number;
 }
